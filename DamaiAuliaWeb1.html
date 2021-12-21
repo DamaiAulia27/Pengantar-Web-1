@@ -1,0 +1,296 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script language="Javascript">
+<!--
+function isNumberKey(evt)
+{
+var charCode = (evt.which) ? evt.which : event.keyCode
+if (charCode > 31 && (charCode < 48 || charCode > 57))
+return false;
+return true;
+}
+//-->
+</script><script language="JavaScript">
+
+    //fungsi displayTime yang dipanggil di bodyOnLoad dieksekusi tiap 1000ms = 1detik
+    function displayTime(){
+        //buat object date berdasarkan waktu saat ini
+        var time = new Date();
+        //ambil nilai jam, 
+        //tambahan script + "" supaya variable sh bertipe string sehingga bisa dihitung panjangnya : sh.length
+        var sh = time.getHours() + ""; 
+        //ambil nilai menit
+        var sm = time.getMinutes() + "";
+        //ambil nilai detik
+        var ss = time.getSeconds() + "";
+        //tampilkan jam:menit:detik dengan menambahkan angka 0 jika angkanya cuma satu digit (0-9)
+        document.getElementById("clock").innerHTML = (sh.length==1?"0"+sh:sh) + ":" + (sm.length==1?"0"+sm:sm) + ":" + (ss.length==1?"0"+ss:ss);
+    }
+
+</script>
+
+
+
+<link rel="stylesheet" type="text/css" href="../../Downloads/PMB KAPUTAMA_files/main.css">
+<link rel="stylesheet" type="text/css" href="../../Downloads/PMB KAPUTAMA_files/tombol.css">
+<link rel="icon" type="image/png" href="http://pmb.kaputama.ac.id/register/images/icon.png">
+<script type="text/javascript" src="../../Downloads/PMB KAPUTAMA_files/jquery-1.2.3.pack.js.download"></script>
+<script type="text/javascript" src="../../Downloads/PMB KAPUTAMA_files/jquery.validate.pack.js.download"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#formdaftar").validate({
+		messages: {
+			email: {
+				required: "E-mail harus diisi",
+				email: "Masukkan E-mail yang valid"
+			}
+		},
+		errorPlacement: function(error, element) {
+			error.appendTo(element.parent("td"));
+		}
+	});
+})
+</script>
+<title>Pendaftaran Mahasiswa Baru Kaputama</title>
+
+</head>
+
+<body onload="displayTime();setInterval(&#39;displayTime()&#39;, 1000);">
+
+<div class="container">
+  <div id="header">
+	<div id="img"><img src="../../Downloads/PMB KAPUTAMA_files/kptm.png" width="131" height="100"></div>
+	<div id="head">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Formulir Pendaftaran Mahasiswa Baru <br>
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; STMIK KAPUTAMA BINJAI T.A 2021/2022</div></div>
+  
+<div id="isi">
+<a href="https://pmb.kaputama.ac.id/"><input type="button" class="demo" value="Home"></a> <a href="https://usm.kaputama.ac.id/"><input type="button" value="Login Ujian">
+</a><a href="http://pmb.kaputama.ac.id/register/login.php"><input type="button" value="Cetak Katu Pendaftaran"></a>
+<h4>BIODATA DIRI ANDA</h4>
+<form action="http://pmb.kaputama.ac.id/register/simpan_peserta.php" method="post" id="formdaftar" enctype="multipart/form-data">
+	<table>
+		
+		<tbody><tr>
+			<td>Nama Lengkap</td>
+			<td colspan="2">
+				<input name="nama" class="required" title="Nama harus diisi" size="40" type="text">
+			</td>
+		</tr>
+        <tr>
+			<td>Pasfoto</td>
+			<td colspan="2">
+				<input name="pasfoto" title="Upload pasfoto" type="file"><br>* Maks. 500Kb<br>* Format file jpg dan png</td>
+		</tr>
+		<tr>
+			<td>Tempat/Tgl Lahir</td>
+			<td colspan="2">
+				<input name="tempat_lahir" class="required" title="Tempat lahir harus diisi" size="40" type="text"> /
+				<select name="tgl" size="1" id="tgl" class="required" title="Tanggal harus di isi">
+  <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option>  </select>
+  <select name="bln" size="1" id="bln" class="required" title="Bulan harus di isi">
+  <option value="1">Januari</option><option value="2">Pebruari</option><option value="3">Maret</option><option value="4">April</option><option value="5">Mei</option><option value="6">Juni</option><option value="7">Juli</option><option value="8">Agustus</option><option value="9">September</option><option value="10">Oktober</option><option value="11">November</option><option value="12">Desember</option>  </select>
+  <select name="thn" size="1" id="thn" class="required" title="Tahun harus di isi">
+  <option value="1981">1981</option><option value="1982">1982</option><option value="1983">1983</option><option value="1984">1984</option><option value="1985">1985</option><option value="1986">1986</option><option value="1987">1987</option><option value="1988">1988</option><option value="1989">1989</option><option value="1990">1990</option><option value="1991">1991</option><option value="1992">1992</option><option value="1993">1993</option><option value="1994">1994</option><option value="1995">1995</option><option value="1996">1996</option><option value="1997">1997</option><option value="1998">1998</option><option value="1999">1999</option><option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option>  </select>
+			</td>
+		</tr>
+        <tr>
+			<td>Jenis Kelamin</td>
+			<td colspan="2">
+				<input name="jenis_kelamin" value="L" class="required" title="Jenis Kelamin harus diisi" type="radio">Laki-laki
+				<input name="jenis_kelamin" value="P" type="radio" class="required">Perempuan
+			</td>
+		</tr>
+        <tr>
+			<td>Status</td>
+			<td colspan="2">
+				<input name="status" value="M" class="required" title="Status Harus diisi" type="radio">Menikah
+				<input name="status" value="B" type="radio">Belum Menikah
+			</td>
+		</tr>
+        <tr>
+			<td>Agama</td>
+			<td colspan="2">
+				<select name="agama" class="required" title="Agama harus dipilih">
+					<option value="">-- Pilih Agama --</option>
+					<option value="Islam">Islam</option>
+					<option value="Katolik">Katolik</option>
+					<option value="Protestan">Protestan</option>
+					<option value="Hindu">Hindu</option>
+					<option value="Budha">Budha</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>Alamat</td>
+			<td colspan="2"><textarea name="alamat" class="required" title="Alamat harus diisi" cols="50" rows="5"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td>No. Telp</td>
+			<td colspan="2">
+				<input name="no_telp" size="30" type="text" onkeypress="return isNumberKey(event)">
+			</td>
+		</tr>
+		<tr>
+			<td>No. HP</td>
+			<td colspan="2">
+				<input name="no_hp" class="required" title="No. HP harus diisi" size="12" type="text" onkeypress="return isNumberKey(event)">
+			</td>
+		</tr>
+<tr>
+			<td>E-mail</td>
+			<td colspan="2">
+				<input name="email" id="email" size="30" type="text">
+			</td>
+		</tr>
+      <tr>
+			<td>Asal Sekolah</td>
+			<td colspan="2">
+				<input name="asal_sekolah" class="required" title="Asal sekolah harus diisi" size="40" type="text">
+             </td></tr><tr><td></td><td>Alamat</td>
+			<td><textarea name="alamat_sekolah" class="required" title="Alamat sekolah harus diisi" cols="50" rows="5"></textarea></td>
+		</tr>  
+        <tr><td></td><td>Jurusan</td>
+			<td><input name="jurusan" class="required" title="Jurusan harus diisi" size="40" type="text"></td>
+		</tr>  
+		
+		
+		<tr>
+			<td>Program Studi</td>
+			<td colspan="2">Pilihan 1 
+				<select name="id_prodi1" class="required" title="Program Studi harus dipilih">
+					<option value="">-- Pilih Program Studi --</option>
+					<option value="45">Teknik Informatika (S1)</option>
+					<option value="44">Sistem Informasi (S1)</option>
+					<option value="32">Komputerisasi Akuntansi (D3)</option>
+                    <option value="31">Manajemen Informatika (D3)</option>
+				</select>
+			 </td>
+            </tr>
+            <tr>
+			<td></td>
+			<td colspan="2">Pilihan 2 
+				<select name="id_prodi2" title="Program Studi harus dipilih">
+					<option value="">-- Pilih Program Studi --</option>
+					<option value="45">Teknik Informatika (S1)</option>
+					<option value="44">Sistem Informasi (S1)</option>
+					<option value="32">Komputerisasi Akuntansi (D3)</option>
+                    <option value="31">Manajemen Informatika (D3)</option>
+				</select>
+			 </td>
+            </tr>
+        <tr>
+			<td>Waktu belajar</td>
+			<td colspan="2">
+				<input name="kelas" value="P" class="required" title="Waktu belajar harus diisi" type="radio">Pagi
+				<input name="kelas" value="S" type="radio">Sore
+			</td>
+		</tr>
+		
+ <tr>
+			<td>Orang Tua</td>
+			<td>Ayah</td>
+			<td><input name="nama_ayah" class="required " size="30" type="text" title="Nama Ayah harus diisi"></td>
+		</tr>  
+<tr>
+			<td></td>
+			<td>Pekerjaan</td>
+			<td><input name="pekerjaan_ayah" class="required " size="30" type="text" title="Pekerjaan Ayah harus diisi"></td>
+		</tr>   
+        <tr>
+			<td></td>
+			<td>Ibu</td>
+			<td><input name="nama_ibu" class="required " size="30" type="text" title="Nama Ibu harus diisi"></td>
+		</tr> 
+        <tr>
+			<td></td>
+			<td>Pekerjaan</td>
+			<td><input name="pekerjaan_ibu" class="required " size="30" type="text" title="Pekerjaan Ibu harus diisi"></td>
+		</tr>
+         <tr><td>Alamat</td>
+			<td colspan="2"><textarea name="alamat_org_tua" class="required" title="Alamat orang tua harus dissi" cols="50" rows="5"></textarea></td>
+		</tr> 
+        <tr>
+			<td>No. Telp</td>
+			<td colspan="2">
+				<input name="no_telp_org_tua" size="12" type="text" onkeypress="return isNumberKey(event)">
+			</td>
+		</tr>
+		<tr>
+			<td>No. HP</td>
+			<td colspan="2">
+				<input name="no_hp_org_tua" size="12" type="text" onkeypress="return isNumberKey(event)">
+			</td>
+		</tr>           
+<tr><td colspan="3" width="800"><hr color="#666666" size="2"></td></tr>
+<tr><td colspan="3" bgcolor=#95E8B6><center><b>Diisi jika calon mahasiswa tinggal tidak dengan orang tua</b></center></td></tr>
+<tr>
+			<td>Nama Wali</td>
+			<td colspan="2">
+				<input name="nama_wali" size="40" type="text">
+             </td></tr><tr><td>Alamat Wali</td>
+			<td colspan="2"><textarea name="alamat_wali" cols="50" rows="5"></textarea></td>
+		</tr> 
+        <tr>
+			<td>No. Telp</td>
+			<td colspan="2">
+				<input name="no_telp_wali" size="12" type="text" onkeypress="return isNumberKey(event)">
+			</td>
+		</tr>
+		<tr>
+			<td>No. HP</td>
+			<td colspan="2">
+				<input name="no_hp_wali" size="12" type="text" onkeypress="return isNumberKey(event)">
+			</td>
+		</tr> 
+        <tr><td colspan="3" width="800"><hr color="#666666" size="2"></td></tr>
+<tr>
+ 
+<tr><td colspan="3" bgcolor=#95E8B6><center><b>Apabila ada hal yang penting alamat yang dapat dihubungi (melalui POS/Telepon)</b></center></td></tr>
+<tr>
+			<td>Nama Wali</td>
+			<td colspan="2">
+				<input name="nama_kerabat" title="Harus diisi" size="40" type="text">
+             </td></tr><tr><td>Alamat Wali</td>
+			<td colspan="2"><textarea name="alamat_kerabat" title="Harus diisi" cols="50" rows="5"></textarea></td>
+		</tr> 
+        <tr>
+			<td>No. Telp</td>
+			<td colspan="2">
+				<input name="no_telp_kerabat" size="12" type="text" onkeypress="return isNumberKey(event)">
+			</td>
+		</tr>
+		<tr>
+			<td>No. HP</td>
+			<td colspan="2">
+				<input name="no_hp_kerabat" size="12" type="text" title="Harus diisi" onkeypress="return isNumberKey(event)">
+			</td>
+		</tr> 
+        <tr><td>Sponsor</td>
+        
+			<td colspan="2"><textarea name="sponsor" cols="50" rows="5"></textarea></td>
+            </tr><tr>
+			<td>Program Pendidikan</td>
+			<td colspan="2">
+				<input name="program" value="U" class="required" title="program Pendidikan harus diisi" type="radio">Umum
+				<input name="program" value="P" type="radio">Pindahan
+                <input name="program" value="BM" type="radio">KIP KULIAH
+				<input name="program" value="T" type="radio">Transfer
+			</td>
+		</tr>
+		
+       <tr>
+       <td colspan="3"><input type="checkbox" class="required" value="Y" name="setuju"> Dengan ini saya menyatakan bahwa data yang Saya masukkan adalah benar. Apabila data yang saya masukkan tidak benar, saya siap diberi sanksi sesuai dengan ketentuan yang berlaku.</td>
+       </tr>
+		<tr>
+			<td></td>
+			<td colspan="2">
+           <input type="hidden" name="tanggal_daftar" value="06-11-2021">
+				<input type="submit" value="Lanjutkan">
+			</td>
+		</tr>
+	</tbody></table>
+</form>
+</div>
+  <div id="footer">Copyright ©  2015 STMIK Kaputama</div>
+
+
+</div></body></html>
